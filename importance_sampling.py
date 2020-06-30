@@ -32,7 +32,7 @@ def generate_gn(n, probs, values):
   S+=sum(func_g(samples)/func_h(samples))
   return S/n
 
-n = np.linspace(1, 10**7, 1000, dtype=np.int32)
+n = np.linspace(1, 10**7, 200, dtype=np.int32)
 estimate_gn = []
 probs = generate_probs()
 values = np.arange(1, 10**6+1)
@@ -43,6 +43,6 @@ for i in n:
 plt.figure(figsize=(12,8))
 plt.plot(np.log(n),np.log(estimate_gn))
 plt.title("Relative error between Gn and the exact value of the sum")
-plt.xlabel("Number of samples")
-plt.ylabel("Relative error")
+plt.xlabel("Number of samples (log10)")
+plt.ylabel("Relative error (log10)")
 plt.show()
